@@ -1,2 +1,2 @@
-# coffee.github.com
-咖啡馆首页
+# smfox.github.io
+home

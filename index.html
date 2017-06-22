@@ -1,113 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>xinxin</title>
-	<style type="text/css">
-	body {
-		background-color: #000;
-		perspective: 340px;
-		
-	}
-
-	.heart {
-		/*position: relative;*/
-		width: 200px;
-		height: 300px;
-		/*transform: rotate(45deg);*/
-		margin: 100px auto;
-		background-color: red;
-
-		border-radius: 100px 100px 0 0;
-
-		animation: miss 0.8s infinite linear;
-		/*这里是第二个动画*/
-		/*animation: turn 10s infinite linear;	*/
-	}
-
-	
-	.heart:before {
-		content: '';
-		display: block;
-		width: 100%;
-		height: 100%;
-		/*z-index: 10;*/
-		transform: rotate(-90deg) translateX(-50px) translateY(-50px);
-		/*transform-origin: right bottom ;*/
-		/*transform: ;*/
-		background-color: red;
-		border-radius: 100px 100px 0 0;
-		animation: love 0.8s infinite linear;
-		/*这里的渐变色可以注释掉*/
-		background: linear-gradient(-90deg, #F50A45 0%, #d5093c 40%);
-		
-	}
-
-	.heart:after {
-		position: absolute;
-		top: 0px;
-		left: 0px;
-
-		content: '';
-		display: block;
-		width: 100%;
-		height: 100%;
-
-		background-color: red;
-		border-radius: 100px 100px 0 200px;
-		/*渐变色可以注释掉*/
-		background: linear-gradient(130deg, #F50A45 0%, #d5093c 40%);
-		/*transform: rotate(0deg) translateX(-50px) translateY(-50px);*/
-		/*animation: miss 1s infinite linear;	*/
-	}
-	/*第一个before的动画*/
-	/*这里有一个特点，就是本身元素有动画的*/
-	@keyframes love {
-		0% {
-			box-shadow: 0 0 40px #d5093c;
-			/*transform: rotate(-90deg) translateX(-50px) translateY(-50px) scale(1);*/
-		}
-		50% {
-			box-shadow: 0 0 80px #d5093c;
-			/*transform: rotate(-90deg) translateX(-50px) translateY(-50px) scale(1);*/
-		}
-		100% {
-			box-shadow: 0 0 40px #d5093c;
-		}
-	}	
-	/*第二个是.heart的动画*/
-	/*after的作用只是用来遮挡缝隙，或者搭配渐变色*/
-	@keyframes miss {
-		0% {
-			box-shadow: 0 0 40px #d5093c;
-			transform: rotateZ(45deg) scale(1) ;
-			
-		}
-		50% {
-			box-shadow: 0 0 80px #d5093c;
-			transform: rotateZ(45deg) scale(1.5);;
-			
-		}
-		100% {
-			box-shadow: 0 0 40px #d5093c;
-			transform: rotateZ(45deg) scale(1) ;
-		}
-	}
-	/*旋转的心*/
-	@keyframes turn {
-		0% {
-			transform: rotateX(0deg) rotateY(0deg) ;
-		}
-		50% {
-			transform: rotateX(360deg) rotateY(360deg) ;
-		}
-		100% {
-			transform: rotateX(0deg) rotateY(0deg) ;
-		}
-	}	
-	</style>
-	
+	<meta charset="UTF-8">
+	<title>Document</title>
 </head>
 <body>
-<div class="heart"></div>
+	<a href="./my/text.html">wenjian1</a>
+	<a href="./my/index.html">wenjian2</a>
+	<a href="./my">二级目录</a>
 </body>
 </html>
