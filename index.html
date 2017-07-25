@@ -1,5 +1,50 @@
 <!DOCTYPE html>
 <html>
+<<<<<<< HEAD
+=======
+<head>
+	<title>xinxin</title>
+	<meta name="viewport" content="width=device-width,initail-scale=1.0">	
+	<style type="text/css">
+	body {
+		background-color: #000;
+		perspective: 340px;
+		
+	}
+
+	.heart {
+		/*position: relative;*/
+		width: 200px;
+		height: 300px;
+		/*transform: rotate(45deg);*/
+		margin: 100px auto;
+		background-color: red;
+
+		border-radius: 100px 100px 0 0;
+
+		animation: miss 0.8s infinite linear;
+		/*这里是第二个动画*/
+		/*animation: turn 10s infinite linear;	*/
+	}
+
+	
+	.heart:before {
+		content: '';
+		display: block;
+		width: 100%;
+		height: 100%;
+		/*z-index: 10;*/
+		transform: rotate(-90deg) translateX(-50px) translateY(-50px);
+		/*transform-origin: right bottom ;*/
+		/*transform: ;*/
+		background-color: red;
+		border-radius: 100px 100px 0 0;
+		animation: love 0.8s infinite linear;
+		/*这里的渐变色可以注释掉*/
+		background: linear-gradient(-90deg, #F50A45 0%, #d5093c 40%);
+		
+	}
+>>>>>>> 6c29fea97adc94b68a7bbcbb8d5ef37d3bbe0ebd
 
 <head>
     <title>xinxin</title>
@@ -113,5 +158,9 @@
         window.location.href = '/pages/page1.html';
     }
 </script>
+<<<<<<< HEAD
 
 </html>
+=======
+</html>
+>>>>>>> 6c29fea97adc94b68a7bbcbb8d5ef37d3bbe0ebd
