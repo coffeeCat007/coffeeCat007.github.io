@@ -1,0 +1,608 @@
+
+body, h1, h2, h3, p, dl, dt, dd, ul, ol, li, button, input, textarea{ margin:0; padding:0; list-style-type: none;}
+
+html, button, input, textarea {
+    overflow:hidden;color:#fff;
+}
+#superContainer {
+    height: 100%;
+    position: relative;
+
+    /* Touch detection for Windows 8 */
+    -ms-touch-action: none;
+
+    /* IE 11 on Windows Phone 8.1*/
+    touch-action: none;
+}
+.fp-section {
+    position: relative;
+    -webkit-box-sizing: border-box; /* Safari<=5 Android<=3 */
+    -moz-box-sizing: border-box; /* <=28 */
+    box-sizing: border-box;
+}
+.fp-slide {
+    float: left;
+}
+.fp-slide, .fp-slidesContainer {
+    height: 100%;
+    display: block;
+}
+.fp-slides {
+    z-index:1;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    -webkit-transition: all 0.3s ease-out; /* Safari<=6 Android<=4.3 */
+    transition: all 0.3s ease-out;
+}
+.fp-section.fp-table, .fp-slide.fp-table {
+    display: table;
+    table-layout:fixed;
+    width: 100%;
+}
+.fp-tableCell {
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+    height: 100%;
+}
+.fp-slidesContainer {
+    float: left;
+    position: relative;
+}
+
+.fp-scrollable {
+    overflow: scroll;
+}
+.fp-notransition {
+    -webkit-transition: none !important;
+    transition: none !important;
+}
+#fp-nav {
+    position: fixed;
+    z-index: 100;
+    margin-top: -32px;
+    top: 20%;
+    opacity: 1;
+}
+
+
+/*版心的设置*/
+.wrap{
+    width: 67%;
+    margin: 0 auto;
+}
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+a{
+    text-decoration: none;
+    color:#999;
+}
+
+.section h2{
+    font-size: 260%;
+}
+.section h3{
+    font-size: 148%;
+}
+.section p{
+    font-size: 140%;
+    color:#fff;
+}
+.section dt{
+    font-size: 22px;
+}
+
+/* 网页的固定标题栏 */
+.head{
+    width: 100%;
+    height: 80px;
+    line-height: 80px;
+    background:rgba(5,12,18,.3);
+    position: fixed;
+    z-index: 4;
+}
+.head .h_z{
+    width: 165px;height: 40px;
+    background: url(../image/logo_03.png) center no-repeat;
+    z-index:3;
+    margin-top: 15px;
+}
+.head .h_r ul {
+    list-style: none;
+}
+.head .h_r li{
+    float: left;
+    margin-left: 70px;
+}
+/* 第一屏*/
+#one img{
+    width: 100%;height: 100%;
+    position: relative;
+}
+#one .quan{
+    position: absolute;
+    top: 40%;  left: 31%;
+    text-align: center;
+}
+#one .quan input{
+  width:120px;
+  background: #27AEDB;
+  color:#fff;
+  font-size: 108%;
+  padding: 1% 4%;
+  margin: 5%;
+}
+#one .xian{
+  position: absolute;
+  width: 17%;
+  top: 11%;right: 12%;
+}
+#one .xian p{
+  margin-top: 4%;
+}
+#one .xian i{
+    color:#27AEDB;
+    font-weight: 700;
+    margin-right: 1%;
+}
+#one .xian p:nth-child(2){
+  text-indent: 8%;
+}
+#one .xian p:nth-child(3){
+  text-indent: 16%;
+}
+#one .xian p:nth-child(4){
+  text-indent: 24%;
+}
+
+/* 第 二 屏 */
+#two .slide img{
+    width: 100%;height: 100%;
+}
+#two #slide img{
+  position: relative;
+} 
+#two .section1{
+  position: absolute;
+  top: 18%;left: 15%;
+} 
+#two .section1 dt n{
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: #27AEDB;
+  border-radius: 50%;
+  margin-right: 1%;
+}
+
+#two .section1 dl{
+    margin: 2% -1.5%;
+}
+#two .section1 dt{
+  margin: 2%;
+}
+
+/*第一屏的右侧部分*/
+.section1_2 #case {
+  height:422px;
+  width:497px;
+  position:absolute;
+  right: 6%;    
+  top: 10%;
+}
+.section1_2 #case #load {
+    width: 268px;
+    height: 261px;
+    background:url(../image/tiao.png);
+    position:absolute;
+    top :73px;
+    left :137px;
+    border-radius:40px;
+    animation: shake 0.9s infinite;
+  }
+@keyframes shake {
+  from {
+        transform: scale(.9, .9);
+  }
+  to {
+        transform: scale(1.1, 1.1);
+  }
+}
+/*外部的大圆*/
+.section1_2 #rond {
+  height:416px;
+  width:416px;
+  border:1px dashed #0CF;
+  border-radius:50%;
+  position:absolute;
+  top:0;
+  right:3%;
+  animation:rond 30s linear infinite;
+  -webkit-animation:rond 30s linear infinite;
+}
+.section1_2 #test1 {
+  height:16%;
+  width:16%;
+  position:absolute;
+  background-color:#0CF;
+  border-radius:50%;
+  top:-14%;
+  left:31%;
+  margin:5px;
+}
+.section1_2 #test2 {
+  height:40px;
+  width:40px;
+  position:absolute;
+  background-color:red;
+  border-radius:50%;
+  top:60px;
+  left:18px;
+  margin:5px;
+}
+.section1_2 #test3 {
+  height:38px;
+  width:38px;
+  position:absolute;
+  background-color:yellow;
+  border-radius:50%;
+  top:334px;
+  left:43px;
+  margin:5px;
+}
+.section1_2 #test4 {
+  height:7px;
+  width:7px;
+  position:absolute;
+  background-color:#0CF;
+  border-radius:50%;
+  top:44px;
+  left:-4px;
+  margin:5px;
+}
+.section1_2 #test5{
+  height:10px;
+  width:10px;
+  position:absolute;
+  background-color:#0CF;
+  border-radius:50%;
+  top:47px;
+  left:98px;
+  margin:5px;
+}
+@keyframes rond {
+  0% {transform : rotate(0deg);}
+  100% {transform : rotate(360deg);}
+}
+@-webkit-keyframes rond {
+    0%{-webkit-transform : rotate(0deg);}
+  100%{-webkit-transform : rotate(360deg);}
+}
+.section1_2 #rond1 {
+  height:355px;
+  width:355px;
+  border:1px dashed #0CF;
+  border-radius:50%;
+  position:absolute;
+  top:31px;
+  right:10%;
+  animation:rond1 30s linear infinite;
+  -webkit-animation:rond1 30s linear infinite;
+}
+.section1_2 #test1_1 {
+  height:16% ;
+  width:16%;
+  position:absolute;
+  background-color:#0CF;
+  border-radius:50%;
+  top:-14%;
+  left:31%;
+  margin:5px;
+}
+.section1_2 #test2_1 {
+  height:40px;
+  width:40px;
+  position:absolute;
+  background-color:red;
+  border-radius:50%;
+  top:60px;
+  left:18px;
+  margin:5px;
+}
+.section1_2 #test3_1 {
+  height:38px;
+  width:38px;
+  position:absolute;
+  background-color:yellow;
+  border-radius:50%;
+  top:334px;
+  left:43px;
+  margin:5px;
+}
+.section1_2 #test4_1 {
+  height:7px;
+  width:7px;
+  position:absolute;
+  background-color:#0CF;
+  border-radius:50%;
+  top:44px;
+  left:-4px;
+  margin:5px;
+}
+.section1_2 #test5_1{
+  height:10px;
+  width:10px;
+  position:absolute;
+  background-color:#0CF;
+  border-radius:50%;
+  top:47px;
+  left:98px;
+  margin:5px;
+}
+@keyframes rond1 {
+    0% {transform : rotate(0deg);}
+    100% {transform : rotate(-360deg);}
+}
+@-webkit-keyframes rond1 {
+    0%{-webkit-transform : rotate(0deg);}
+  100%{-webkit-transform : rotate(-360deg);}
+}
+/* 第一 屏 的 小点  及 俩侧耳朵*/
+#num{
+  position: absolute;
+  left: 41%;
+  bottom: 103px;
+  z-index: 3;
+  cursor:default;
+}
+#num li{
+  float: left;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 1px solid #27AEDB;
+  margin: 13px;
+  line-height: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+#num li.active{background: #27AEDB;}
+.arrow{
+  height: 60px;width: 30px;
+  line-height: 60px;
+  text-align: center;
+  display: block;
+  position: absolute;
+  top:45%;
+  background-color: rgba(0,0,0,0.3);
+  z-index: 3;
+  display: none;
+}
+.arrow:hover{background: rgba(0,0,0,0.7);}
+#flash:hover .arrow{display: block;}
+#left{left: 2%;}
+#right{right: 2%;}
+
+
+/* 第 三 屏 */
+
+#three{
+    width: 100%;height: 100%;
+    background: url(../image/jjfa.jpg) center no-repeat;
+}
+
+.page2 #flash1 #pic1 .section2 dt{
+  width: 200px;
+  height: 250px;
+  float: left;
+  margin-right: 3.5%;
+  background: url(../image/yuan_03.png) no-repeat;
+  position: relative;
+}
+.page2 #flash1 #pic1 .section2 img{
+  position: absolute;
+  top: 18px;left: 22px;
+}
+.page2 #flash1 #pic1 .section2 dl p{
+  margin-top: 20%;
+  text-align: center;
+}
+/*.page2 #flash1 #pic1 .section2_1 dt{
+  float: left;
+  width: 352px;
+  height: 300px;
+  margin-right: 6%;
+}
+.page2 #flash1 #pic1 .section2_1 dt h3{
+  text-align: center;
+}*/
+
+
+
+
+
+
+
+/*需 要 修 改 的 代 码 */
+.page2 .section2 ul{
+    margin-top: 3.6%;
+}
+.page2 .section2 li{
+    float: left;
+    width: 200px;height: 208px;
+    background:url(../image/yuan_03.png) no-repeat;
+    margin-right: 3.5%;
+    text-align: center;
+    padding: 17px 6px;
+
+     /* 设置默认样式，开启3d硬件加速 */
+    -webkit-transform:translate3d(0,0,0);
+    -moz-transform:translate3d(0,0,0);
+    transform:translate3d(0,0,0);
+    /* 设置动画，animation:动画名称 动画播放时长单位秒或微秒 动画播放的速度曲线linear为匀速 动画播放次数infinite为循环播放; */
+    -webkit-animation:play 3s linear infinite;
+    -moz-animation:play 3s linear infinite;
+    animation:play 3s linear infinite;
+}
+@-webkit-keyframes play{
+    0%  {
+        -webkit-transform:rotate(0deg);
+    }
+    100% {
+        -webkit-transform:rotate(360deg);
+    }
+}
+@-moz-keyframes play{
+    0%  {
+        -moz-transform:rotate(0deg);
+    }
+    100% {
+        -moz-transform:rotate(360deg);
+    }
+}
+@keyframes play{
+    0%  {
+        transform:rotate(0deg);
+    }
+    100% {
+        transform:rotate(360deg);
+    }
+}
+.page2 .section2 li p{
+    margin-top:7%;
+    text-align: center;
+}
+
+
+/*第二屏的 第二页*/
+.page2 .section2_1 ul{
+    margin-top: 5%;
+}
+.page2 .section2_1 li{
+    float: left;
+    width: 352px;
+    height: 320px;
+    margin-right: 74px;
+    text-align: center;
+    color:red;
+}
+.page2 .section2_1 li p{
+    color:red;
+}
+.page2 .section2_1 li:nth-child(3){
+    margin-right: 0;
+}
+.page2 .section2_1 li img{
+    width: 352px;height: 218px;
+}
+
+
+
+/* 第四屏 */
+#four {
+    width: 100%;
+    height: 100%;
+    background: url(../image/sqsy.jpg) center no-repeat;
+}
+.page3 .section3{
+    margin: 10% 8% 0 0;
+}
+.page3 .section3 li,.page3 .section3 span{
+    margin-bottom: 1%;
+    color:#fff;
+    font-weight: 700;
+    font-size: 20px;
+}
+.page3 .section3 input{
+    height: 46px;
+    width: 576px;
+    border: 1px solid #259ECB;
+    background: transparent;
+}
+.page3 .section3 #submit{
+    width: 440px;
+
+}
+.page3 .section3 #reset{
+    width: 130px;
+}
+.page3 .section3 .words{
+    height: 46px;
+    display: block;
+    vertical-align: top;
+    float: left;
+    font-size: 18px;
+}
+.page3 .section3 textarea{
+    margin-left: 7px;
+    background: transparent;
+    border: 1px solid #259ECB;
+}
+.page3 .section3 li:nth-child(7){
+    margin-left: 67px;
+}
+.page3 .section3 li:nth-child(7) input{
+  background: #259ECB;
+}
+/*第四屏的二维码*/
+.page3 .section3 .erwei{
+    width: 200px;
+    height: 70px;
+    background: reddd;
+}
+.page3 .section3 .erwei li:nth-child(1){
+    background: url(../image/);
+}
+.page3 .section3 .erwei li:nth-child(2){
+    background: url(../image/);
+}
+
+/* 第五屏 */
+#five {
+    width: 100%;height: 100%;
+    background: url(../image/gywm.jpg) center no-repeat;
+    color:#fff;font-size: 20px;
+}
+
+.page4 b{
+    font-weight: 700;
+    font-size: 32px;
+    color:
+}
+.page4 p{
+    margin-top: 2px;
+}
+.page4 .page4-foot{
+    text-align: center;
+    font-size: 16px;
+    margin-top: 8%;
+}
+.page4 .page4-footer{
+    margin-top: 16%;
+    text-align: center;
+}
+
+
+
+/* 右侧的小点 */
+#navBar {
+    z-index: 3;
+    position: absolute;
+    top: 58%; 
+    right: 3%;
+}
+#navBar .active { background: #27AEDB;width: 18px;height: 18px;}
+
+#navBar li {
+  cursor: pointer; 
+  margin: 51% auto;
+  transition: all .6s ease;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: #27AEDB;
+}
