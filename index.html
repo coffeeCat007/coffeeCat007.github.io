@@ -1,181 +1,187 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-theme="coffee">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>温蒂爸爸的小屋</title>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.14/dist/full.min.css" rel="stylesheet">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap');
 
-    body {
-      font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", sans-serif;
-      background: #1a1a1a;
-      color: #fff;
-      min-height: 100vh;
-      overflow-x: hidden;
+    .font-cabin {
+      font-family: "Noto Serif SC", "PingFang SC", "Microsoft YaHei", serif;
     }
 
-    .hero {
-      position: relative;
-      width: 100%;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      overflow: hidden;
+    .hero-bg-img {
+      background-image: url('images/bg.png');
+      background-size: cover;
+      background-position: center;
     }
 
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-    }
-
-    .hero-bg img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: brightness(0.55);
-    }
-
-    .hero-bg::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        180deg,
-        rgba(45, 37, 35, 0.3) 0%,
-        rgba(87, 64, 60, 0.2) 50%,
-        rgba(45, 37, 35, 0.6) 100%
-      );
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      padding: 2rem;
-    }
-
-    .cabin-icon {
-      font-size: 4rem;
-      margin-bottom: 1rem;
-      animation: float 3s ease-in-out infinite;
+    .glass-card {
+      backdrop-filter: blur(12px);
+      background: rgba(0, 0, 0, 0.25);
     }
 
     @keyframes float {
       0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
+      50% { transform: translateY(-12px); }
     }
 
-    .title {
-      font-size: clamp(2.5rem, 6vw, 4.5rem);
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      color: #fff;
-      text-shadow: 0 2px 20px rgba(0,0,0,0.3);
-      margin-bottom: 0.5rem;
-    }
-
-    .subtitle {
-      font-size: clamp(1rem, 2vw, 1.3rem);
-      font-weight: 300;
-      letter-spacing: 0.15em;
-      color: rgba(255,255,255,0.85);
-      margin-bottom: 2rem;
-    }
-
-    .divider {
-      width: 60px;
-      height: 2px;
-      background: rgba(255,255,255,0.6);
-      margin: 0 auto 2rem;
-      border-radius: 1px;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .nav-link {
-      color: #fff;
-      text-decoration: none;
-      padding: 0.7rem 2rem;
-      border: 1px solid rgba(255,255,255,0.35);
-      border-radius: 50px;
-      font-size: 0.95rem;
-      letter-spacing: 0.05em;
-      backdrop-filter: blur(4px);
-      background: rgba(255,255,255,0.08);
-      transition: all 0.3s ease;
-    }
-
-    .nav-link:hover {
-      background: rgba(255,255,255,0.2);
-      border-color: rgba(255,255,255,0.6);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-    }
-
-    .scroll-hint {
-      position: absolute;
-      bottom: 2rem;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 1;
-      animation: bounce 2s ease-in-out infinite;
-    }
-
-    .scroll-hint span {
-      display: block;
-      width: 24px;
-      height: 24px;
-      border-right: 2px solid rgba(255,255,255,0.5);
-      border-bottom: 2px solid rgba(255,255,255,0.5);
-      transform: rotate(45deg);
-    }
-
-    @keyframes bounce {
-      0%, 100% { transform: translateX(-50%) translateY(0); }
-      50% { transform: translateX(-50%) translateY(8px); }
-    }
-
-    footer {
-      position: absolute;
-      bottom: 1rem;
-      left: 0;
-      right: 0;
-      text-align: center;
-      z-index: 1;
-      font-size: 0.75rem;
-      color: rgba(255,255,255,0.4);
-      letter-spacing: 0.05em;
+    .animate-float {
+      animation: float 3.5s ease-in-out infinite;
     }
   </style>
 </head>
-<body>
-  <section class="hero">
-    <div class="hero-bg">
-      <img src="images/bg.png" alt="">
+<body class="min-h-screen">
+
+  <!-- Navbar -->
+  <div class="navbar fixed top-0 z-50 bg-base-100/30 backdrop-blur-md shadow-sm">
+    <div class="navbar-start">
+      <div class="dropdown">
+        <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+          <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16"/>
+          </svg>
+        </div>
+        <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-10 p-2 shadow bg-base-100 rounded-box w-52">
+          <li><a href="./home">🏠 官网</a></li>
+          <li><a href="./blog">📝 博客</a></li>
+          <li><a href="./project">📂 项目</a></li>
+          <li><a href="./private">💌 联系</a></li>
+        </ul>
+      </div>
+      <a class="btn btn-ghost text-xl font-cabin tracking-wider">🏡 小屋</a>
+    </div>
+    <div class="navbar-center hidden lg:flex">
+      <ul class="menu menu-horizontal px-1 gap-1">
+        <li><a href="./home" class="font-cabin">🏠 官网</a></li>
+        <li><a href="./blog" class="font-cabin">📝 博客</a></li>
+        <li><a href="./project" class="font-cabin">📂 项目</a></li>
+        <li><a href="./private" class="font-cabin">💌 联系</a></li>
+      </ul>
+    </div>
+    <div class="navbar-end">
+      <label class="swap swap-rotate btn btn-ghost btn-circle">
+        <input type="checkbox" class="theme-controller" value="valentine" />
+        <svg class="swap-off h-5 w-5 fill-current" viewBox="0 0 24 24">
+          <path d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z"/>
+        </svg>
+        <svg class="swap-on h-5 w-5 fill-current" viewBox="0 0 24 24">
+          <path d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z"/>
+        </svg>
+      </label>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <div class="hero min-h-screen hero-bg-img">
+    <div class="hero-overlay" style="background: linear-gradient(180deg, rgba(45,37,35,0.4) 0%, rgba(45,37,35,0.3) 50%, rgba(45,37,35,0.7) 100%);"></div>
+
+    <div class="hero-content text-center text-neutral-content relative z-10">
+      <div class="max-w-2xl">
+        <div class="text-7xl mb-6 animate-float">🏡</div>
+
+        <h1 class="mb-4 text-5xl md:text-7xl font-bold font-cabin tracking-wider text-white drop-shadow-lg">
+          温蒂爸爸的小屋
+        </h1>
+
+        <p class="mb-8 text-lg md:text-xl tracking-[0.2em] opacity-80 font-cabin">
+          WENDY · DAD · CABIN
+        </p>
+
+        <div class="w-16 h-0.5 bg-white/50 mx-auto mb-10 rounded-full"></div>
+
+        <!-- Buttons -->
+        <div class="flex flex-wrap gap-4 justify-center">
+          <a href="./home" class="btn glass btn-wide text-white border-white/30 hover:border-white/60">
+            🏠 官网
+          </a>
+          <a href="./blog" class="btn glass btn-wide text-white border-white/30 hover:border-white/60">
+            📝 博客
+          </a>
+          <a href="./project" class="btn glass btn-wide text-white border-white/30 hover:border-white/60">
+            📂 项目
+          </a>
+          <a href="./private" class="btn glass btn-wide text-white border-white/30 hover:border-white/60">
+            💌 联系
+          </a>
+        </div>
+      </div>
     </div>
 
-    <div class="hero-content">
-      <div class="cabin-icon">🏡</div>
-      <h1 class="title">温蒂爸爸的小屋</h1>
-      <p class="subtitle">W E N D Y · D A D · C A B I N</p>
-      <div class="divider"></div>
-      <nav class="nav-links">
-        <a href="./home" class="nav-link">🏠 官网</a>
-        <a href="./blog" class="nav-link">📝 博客</a>
-        <a href="./project" class="nav-link">📂 项目</a>
-        <a href="./private" class="nav-link">💌 联系</a>
-      </nav>
+    <!-- Scroll hint -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
+      <div class="flex flex-col items-center gap-2 opacity-60">
+        <span class="text-xs tracking-widest uppercase">向下滚动</span>
+        <svg class="w-5 h-5 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </div>
     </div>
+  </div>
 
-    <div class="scroll-hint"><span></span></div>
+  <!-- About Section -->
+  <section class="py-24 bg-base-200">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <div class="avatar placeholder mb-8">
+        <div class="bg-primary text-primary-content rounded-full w-24">
+          <span class="text-4xl">🐻</span>
+        </div>
+      </div>
+      <h2 class="text-3xl md:text-4xl font-bold font-cabin mb-6">欢迎来到小屋</h2>
+      <p class="text-base-content/70 text-lg leading-relaxed max-w-2xl mx-auto font-cabin">
+        这里记录着温蒂爸爸的点点滴滴 —— 技术笔记、项目实践、生活随想。
+        如同森林深处的一间温暖小屋，随时欢迎朋友来访。
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+        <div class="card bg-base-100 shadow-sm hover:shadow-md transition-shadow">
+          <div class="card-body items-center text-center">
+            <div class="text-4xl mb-3">📝</div>
+            <h3 class="card-title font-cabin">技术博客</h3>
+            <p class="text-base-content/60">分享开发经验与踩坑记录</p>
+          </div>
+        </div>
+        <div class="card bg-base-100 shadow-sm hover:shadow-md transition-shadow">
+          <div class="card-body items-center text-center">
+            <div class="text-4xl mb-3">📂</div>
+            <h3 class="card-title font-cabin">开源项目</h3>
+            <p class="text-base-content/60">个人作品与实验性项目</p>
+          </div>
+        </div>
+        <div class="card bg-base-100 shadow-sm hover:shadow-md transition-shadow">
+          <div class="card-body items-center text-center">
+            <div class="text-4xl mb-3">☕</div>
+            <h3 class="card-title font-cabin">生活随笔</h3>
+            <p class="text-base-content/60">读书、思考与日常碎片</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-10 bg-base-300 text-base-content/60">
+    <aside>
+      <p class="font-cabin text-lg text-base-content/80">🏡 温蒂爸爸的小屋</p>
+      <p class="text-sm mt-1">© 2026 Wendy's Dad Cabin · Powered by GitHub Pages</p>
+      <div class="flex gap-4 mt-4">
+        <a href="https://github.com/coffeeCat007" target="_blank" class="btn btn-ghost btn-circle">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+        </a>
+      </div>
+    </aside>
+  </footer>
+
+  <!-- Theme toggle script -->
+  <script>
+    const toggle = document.querySelector('.theme-controller');
+    toggle.addEventListener('change', () => {
+      document.documentElement.setAttribute(
+        'data-theme',
+        toggle.checked ? 'valentine' : 'coffee'
+      );
+    });
+  </script>
 </body>
 </html>
