@@ -1,18 +1,181 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>温蒂爸爸的小屋</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", sans-serif;
+      background: #1a1a1a;
+      color: #fff;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.55);
+    }
+
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(45, 37, 35, 0.3) 0%,
+        rgba(87, 64, 60, 0.2) 50%,
+        rgba(45, 37, 35, 0.6) 100%
+      );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 2rem;
+    }
+
+    .cabin-icon {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .title {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: #fff;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      font-size: clamp(1rem, 2vw, 1.3rem);
+      font-weight: 300;
+      letter-spacing: 0.15em;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 2rem;
+    }
+
+    .divider {
+      width: 60px;
+      height: 2px;
+      background: rgba(255,255,255,0.6);
+      margin: 0 auto 2rem;
+      border-radius: 1px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .nav-link {
+      color: #fff;
+      text-decoration: none;
+      padding: 0.7rem 2rem;
+      border: 1px solid rgba(255,255,255,0.35);
+      border-radius: 50px;
+      font-size: 0.95rem;
+      letter-spacing: 0.05em;
+      backdrop-filter: blur(4px);
+      background: rgba(255,255,255,0.08);
+      transition: all 0.3s ease;
+    }
+
+    .nav-link:hover {
+      background: rgba(255,255,255,0.2);
+      border-color: rgba(255,255,255,0.6);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+      animation: bounce 2s ease-in-out infinite;
+    }
+
+    .scroll-hint span {
+      display: block;
+      width: 24px;
+      height: 24px;
+      border-right: 2px solid rgba(255,255,255,0.5);
+      border-bottom: 2px solid rgba(255,255,255,0.5);
+      transform: rotate(45deg);
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(8px); }
+    }
+
+    footer {
+      position: absolute;
+      bottom: 1rem;
+      left: 0;
+      right: 0;
+      text-align: center;
+      z-index: 1;
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.05em;
+    }
+  </style>
 </head>
 <body>
-  <h1>狐狸密语</h1>
-  <ul>
-    <li><a href="./home">官网</a></li>
-    <li><a href="./blog">博客</a></li>
-    <li><a href="./project">项目</a></li>
-    <li><a href="./private">call me</a></li>
-  </ul>
+  <section class="hero">
+    <div class="hero-bg">
+      <img src="images/bg.png" alt="">
+    </div>
+
+    <div class="hero-content">
+      <div class="cabin-icon">🏡</div>
+      <h1 class="title">温蒂爸爸的小屋</h1>
+      <p class="subtitle">W E N D Y · D A D · C A B I N</p>
+      <div class="divider"></div>
+      <nav class="nav-links">
+        <a href="./home" class="nav-link">🏠 官网</a>
+        <a href="./blog" class="nav-link">📝 博客</a>
+        <a href="./project" class="nav-link">📂 项目</a>
+        <a href="./private" class="nav-link">💌 联系</a>
+      </nav>
+    </div>
+
+    <div class="scroll-hint"><span></span></div>
+  </section>
 </body>
 </html>
