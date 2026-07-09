@@ -1,0 +1,250 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>可用 AI 模型功能分类与使用策略 - 温蒂爸爸的小屋</title><meta name="description" content="按常识问答、AI 热点、代码 demo、大型项目工程化迭代等场景，为可用模型建立任务路由策略。"><style>:root{--bg:#f7f4ef;--paper:#fffdf9;--ink:#24211d;--muted:#746a60;--accent:#8b5e34;--line:#e6ded4}*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);line-height:1.75}header{padding:28px 20px 18px;border-bottom:1px solid var(--line);background:rgba(255,253,249,.9);position:sticky;top:0;backdrop-filter:blur(12px);z-index:2}nav{max-width:980px;margin:0 auto;display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap}nav a{color:var(--accent);text-decoration:none;font-weight:700}main{max-width:980px;margin:0 auto;padding:36px 20px 80px}article,.card{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:28px;box-shadow:0 12px 30px rgba(59,45,32,.06)}h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.18;margin:0 0 12px}h2{margin-top:42px;border-bottom:1px solid var(--line);padding-bottom:8px}h3{margin-top:30px}.meta,.desc{color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:28px}.card{display:block;color:inherit;text-decoration:none;transition:transform .18s ease,box-shadow .18s ease}.card:hover{transform:translateY(-2px);box-shadow:0 18px 36px rgba(59,45,32,.1)}.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}.tag{border:1px solid var(--line);border-radius:999px;padding:2px 10px;color:var(--muted);font-size:13px}pre{overflow-x:auto;background:#24211d;color:#fff8ed;padding:18px;border-radius:8px}code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;background:#f0e8dc;padding:2px 5px;border-radius:4px}pre code{background:transparent;padding:0}.table-wrap{overflow-x:auto;margin:18px 0}table{width:100%;border-collapse:collapse;background:#fff}th,td{border:1px solid var(--line);padding:9px 10px;text-align:left;vertical-align:top}th{background:#f1e8dc}footer{max-width:980px;margin:0 auto;padding:0 20px 40px;color:var(--muted)}</style></head><body><header><nav><a href="/">温蒂爸爸的小屋</a><span><a href="/knowledge/">知识库</a> &#183; <a href="/blog/">博客</a> &#183; <a href="/project/">项目</a></span></nav></header><main><article><p class="meta">2026-07-08</p><h1>可用 AI 模型功能分类与使用策略</h1><p class="desc">按常识问答、AI 热点、代码 demo、大型项目工程化迭代等场景，为可用模型建立任务路由策略。</p><div class="tags"><span class="tag">AI协作</span><span class="tag">大模型</span><span class="tag">模型选择</span><span class="tag">工作流</span><span class="tag">工程实践</span></div><h1>可用 AI 模型功能分类与使用策略</h1>
+<ul>
+<li>问题编号：Q-2026-W28-004</li>
+<li>草稿编号：D-2026-W28-004</li>
+<li>来源编号：S-2026-W28-005</li>
+<li>平台：待定平台</li>
+<li>状态：草稿</li>
+<li>标签：AI 协作 / 大模型 / 模型选择 / 工作流 / 工程实践</li>
+</ul>
+<h2>背景</h2>
+<p>当前可用模型很多，包括 GPT、Claude、DeepSeek、Kimi、豆包、MiniMax、GLM、LongCat、Spark、Mimo 等系列，也有图像、语音、代码评审等专项模型。</p>
+<p>真正使用时，不需要每次都重新纠结所有模型。更高效的方式是按任务分层：</p>
+<ul>
+<li>常识问答：便宜、稳定、回答清楚。</li>
+<li>AI 热点问答：需要联网搜索、引用来源和时间意识。</li>
+<li>代码 demo：需要快速生成可运行样例。</li>
+<li>大型项目工程化迭代：需要深度推理、长上下文、工具调用和修改闭环。</li>
+</ul>
+<h2>总体结论</h2>
+<p>不需要把 50 多个模型都当主力。固定 6 到 8 个常用模型就够了：</p>
+<div class="table-wrap"><table>
+<tr><th>场景</th><th>首选</th><th>备选</th></tr>
+<tr><td>常识问答</td><td><code>deepseek-v4-pro</code></td><td><code>gpt-5.4-mini</code>、<code>kimi-k2.6</code>、<code>MiniMax-M3</code></td></tr>
+<tr><td>AI 热点问答</td><td><code>gpt-5.4</code> + 搜索</td><td><code>gpt-5.5</code>、<code>deepseek-v4-pro</code>、<code>kimi-k2.6</code></td></tr>
+<tr><td>代码 demo</td><td><code>kimi-k2.7-code</code></td><td><code>doubao-seed-2.0-code</code>、<code>LongCat-2.0</code>、<code>deepseek-v4-pro</code></td></tr>
+<tr><td>大型项目迭代</td><td><code>gpt-5.5</code> / <code>claude-opus-4-8</code></td><td><code>claude-sonnet-4-6</code>、<code>deepseek-v4-pro[1m]</code>、<code>glm-5.2[1m]</code>、<code>LongCat-2.0</code></td></tr>
+<tr><td>快速便宜试错</td><td><code>deepseek-v4-flash</code></td><td><code>doubao-seed-2.0-lite</code>、<code>MiniMax-M2.7-highspeed</code>、<code>spark-x2-flash</code></td></tr>
+</table></div>
+<p>一句话策略：</p>
+<pre><code>小问题用便宜快模型，代码 demo 用 coding 模型，大项目用顶级模型，长上下文只在真的需要跨很多文件时再开。</code></pre>
+<h2>按功能分类</h2>
+<h3>1. 高难度思考、架构和关键修改</h3>
+<p>适合任务：</p>
+<ul>
+<li>架构设计</li>
+<li>技术选型</li>
+<li>复杂 bug 定位</li>
+<li>大型重构方案</li>
+<li>关键代码修改前的方案判断</li>
+</ul>
+<p>优先级：</p>
+<pre><code>gpt-5.5
+claude-opus-4-8
+gpt-5.4
+claude-opus-4-7
+claude-opus-4-6
+claude-sonnet-4-6
+deepseek-v4-pro</code></pre>
+<p>使用建议：</p>
+<ul>
+<li>重要决策优先用 <code>gpt-5.5</code> 或 <code>claude-opus-4-8</code>。</li>
+<li>成本敏感但仍需要质量时，用 <code>gpt-5.4</code> 或 <code>deepseek-v4-pro</code>。</li>
+<li>Claude 系列适合长任务、代码理解、复杂文字推理和 Agent 工作流。</li>
+</ul>
+<h3>2. 大型项目和长上下文任务</h3>
+<p>适合任务：</p>
+<ul>
+<li>多文件阅读</li>
+<li>大仓库梳理</li>
+<li>长文档理解</li>
+<li>项目级代码迁移</li>
+<li>工程化迭代前的上下文扫描</li>
+</ul>
+<p>优先级：</p>
+<pre><code>gpt-5.5
+claude-opus-4-8
+claude-sonnet-4-6
+deepseek-v4-pro[1m]
+glm-5.2[1m]
+LongCat-2.0
+deepseek-v4-flash[1m]</code></pre>
+<p>注意：</p>
+<p><code>1m</code> 代表上下文容量大，但不代表一定更聪明。大上下文适合装更多材料，但真正改项目时，仍然需要 Agent 能定位文件、写补丁、跑测试、根据报错继续修。</p>
+<h3>3. 代码 demo 和小项目快速实现</h3>
+<p>适合任务：</p>
+<ul>
+<li>写 demo</li>
+<li>搭脚手架</li>
+<li>生成接口样例</li>
+<li>写小工具</li>
+<li>前端页面原型</li>
+<li>局部函数实现</li>
+</ul>
+<p>优先级：</p>
+<pre><code>kimi-k2.7-code
+doubao-seed-2.0-code
+kimi-for-coding
+LongCat-2.0
+gpt-5.3-codex-spark
+gpt-5.3-codex-spark-openai-compact
+anthropic/km/coding
+deepseek-v4-pro
+doubao-seed-code</code></pre>
+<p>使用建议：</p>
+<ul>
+<li>快速 demo：先用 <code>kimi-k2.7-code</code> 或 <code>doubao-seed-2.0-code</code>。</li>
+<li>需要 Agent 式代码任务：试 <code>LongCat-2.0</code> 或 Codex 相关模型。</li>
+<li>重要 demo 收尾：再用 <code>gpt-5.4</code> 或 <code>gpt-5.5</code> 检查架构和边界情况。</li>
+</ul>
+<h3>4. 常识问答和日常解释</h3>
+<p>适合任务：</p>
+<ul>
+<li>常识问答</li>
+<li>概念解释</li>
+<li>简单总结</li>
+<li>文本改写</li>
+<li>轻量代码解释</li>
+</ul>
+<p>优先级：</p>
+<pre><code>deepseek-v4-pro
+gpt-5.4-mini
+kimi-k2.6
+MiniMax-M3
+glm-5.2
+doubao-seed-2.0-pro
+spark-x2</code></pre>
+<p>使用建议：</p>
+<ul>
+<li>日常默认用 <code>deepseek-v4-pro</code>。</li>
+<li>想要更便宜更快，用 <code>deepseek-v4-flash</code> 或高速模型。</li>
+<li>想要中文表达自然，可以试 Kimi、MiniMax、豆包、GLM、Spark。</li>
+</ul>
+<h3>5. 快速、低成本、批量任务</h3>
+<p>适合任务：</p>
+<ul>
+<li>批量分类</li>
+<li>批量摘要</li>
+<li>轻量提取</li>
+<li>初稿生成</li>
+<li>不重要的问答</li>
+<li>快速试错</li>
+</ul>
+<p>可选模型：</p>
+<pre><code>deepseek-v4-flash
+deepseek-v4-flash[1m]
+doubao-seed-2.0-lite
+MiniMax-M2.7-highspeed
+MiniMax-M2.5-highspeed
+spark-x2-flash
+gpt-5.5-openai-compact
+gpt-5.4-openai-compact
+gpt-5.4-mini-openai-compact
+claude-haiku-4-5-20251001</code></pre>
+<p>使用建议：</p>
+<ul>
+<li>先用便宜快模型出草稿。</li>
+<li>重要内容再交给高阶模型审一遍。</li>
+<li><code>compact</code> 类模型适合省成本，不适合作为重要工程结论的最终判断。</li>
+</ul>
+<h3>6. 图像、语音和专项任务</h3>
+<p>图像：</p>
+<pre><code>gpt-image-2
+gpt-image-1.5
+gpt-image-1</code></pre>
+<p>语音：</p>
+<pre><code>mimo-v2.5-tts
+mimo-v2.5-tts-voicedesign
+mimo-v2.5-tts-voiceclone
+mimo-v2.5-asr</code></pre>
+<p>代码评审：</p>
+<pre><code>codex-auto-review</code></pre>
+<p>使用建议：</p>
+<ul>
+<li>图像模型只用于图片生成、改图、视觉素材。</li>
+<li>TTS / ASR 只用于语音合成、声音设计、语音识别。</li>
+<li><code>codex-auto-review</code> 适合专门做代码评审，不当作通用问答模型。</li>
+</ul>
+<h2>关于网关别名</h2>
+<p>列表里有一些模型名像：</p>
+<pre><code>anthropic/ds/v4-pro
+anthropic/ds/v4-flash
+anthropic/km/2.6
+anthropic/km/coding
+anthropic/mx/3
+anthropic/gm/5.2
+anthropic/xiaomi/mo-v2.5-pro</code></pre>
+<p>这些看起来更像平台内部路由或厂商网关别名，不一定等同于官方公开型号。</p>
+<p>使用时不要只看前缀，要看实际表现：</p>
+<ul>
+<li>后缀带 <code>coding</code>：优先试代码任务。</li>
+<li>后缀带 <code>flash</code>：优先试快速低成本任务。</li>
+<li>后缀带 <code>pro</code>：优先试常识问答和中等复杂任务。</li>
+<li>后缀带具体版本号：需要用同一组测试题实测。</li>
+</ul>
+<h2>针对四类核心用途的建议</h2>
+<h3>常识问答</h3>
+<p>默认：</p>
+<pre><code>deepseek-v4-pro</code></pre>
+<p>备选：</p>
+<pre><code>gpt-5.4-mini
+kimi-k2.6
+MiniMax-M3
+glm-5.2</code></pre>
+<p>原则：不需要用最贵模型。只要回答清楚、稳定、便宜，就够了。</p>
+<h3>AI 热点问答</h3>
+<p>默认：</p>
+<pre><code>gpt-5.4 + 搜索</code></pre>
+<p>重要问题：</p>
+<pre><code>gpt-5.5 + 搜索</code></pre>
+<p>原则：热点问题最怕知识过期。模型本身再强，也要配合搜索、时间判断和来源引用。</p>
+<h3>代码 demo</h3>
+<p>默认：</p>
+<pre><code>kimi-k2.7-code
+doubao-seed-2.0-code</code></pre>
+<p>备选：</p>
+<pre><code>LongCat-2.0
+deepseek-v4-pro
+gpt-5.3-codex-spark</code></pre>
+<p>原则：demo 先追求快和可运行，再用更强模型做代码审查和边界补齐。</p>
+<h3>大型项目工程化迭代</h3>
+<p>默认：</p>
+<pre><code>gpt-5.5
+claude-opus-4-8</code></pre>
+<p>辅助：</p>
+<pre><code>claude-sonnet-4-6
+deepseek-v4-pro[1m]
+glm-5.2[1m]
+LongCat-2.0</code></pre>
+<p>原则：大型项目不是单纯比模型，而是比完整工作流。</p>
+<p>好的工作流应该是：</p>
+<pre><code>定位问题 -&gt; 读取关键文件 -&gt; 提出最小方案 -&gt; 修改代码 -&gt; 跑测试 -&gt; 根据错误继续收敛</code></pre>
+<h2>最小评测方法</h2>
+<p>可以用 4 个固定任务测试所有候选模型：</p>
+<ol>
+<li>常识解释：让它用高中生能懂的话解释一个复杂概念。</li>
+<li>热点问答：让它搜索并总结某个最新 AI 事件。</li>
+<li>代码 demo：让它写一个可运行的小功能。</li>
+<li>工程迭代：给它一个真实项目问题，看它能否定位核心文件并提出最小修改方案。</li>
+</ol>
+<p>每个模型打 5 个分：</p>
+<pre><code>速度
+准确性
+表达清楚程度
+代码可运行性
+是否能聚焦关键文件和方案</code></pre>
+<p>这样比单纯问“哪个模型最好”更可靠。</p>
+<h2>当前个人默认配置</h2>
+<p>建议先固定成这套：</p>
+<pre><code>日常问答：deepseek-v4-pro
+热点问答：gpt-5.4 + 搜索
+代码 demo：kimi-k2.7-code / doubao-seed-2.0-code
+大型项目：gpt-5.5 / claude-opus-4-8
+长上下文辅助：deepseek-v4-pro[1m] / glm-5.2[1m] / LongCat-2.0
+快速试错：deepseek-v4-flash
+图像：gpt-image-2
+语音：mimo-v2.5</code></pre>
+<h2>最短结论</h2>
+<p>模型选择不是“谁最强就一直用谁”，而是“任务需要什么，就派谁上场”。</p>
+<p>常识问答看性价比，热点问答看搜索和来源，代码 demo 看生成速度和可运行性，大型项目看 Agent 工作流和修改闭环。</p>
+<p>最稳定的策略是：先用便宜模型探索，再用强模型做关键判断。</p></article></main><footer>Generated from local Markdown knowledge notes.</footer></body></html>
